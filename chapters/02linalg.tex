@@ -57,4 +57,19 @@
     \begin{itemize}
         \item $C = AB$ $\rightarrow$ $C_{i,j}$ is the dot product of row $i$ of $A$ and column $j$ of $B$ 
     \end{itemize}
+    \item \textbf{Matrix Operation Properties}:
+    \begin{itemize}
+        \item distributive: $A(B + C) = AB + AC$
+        \item associative: $(AB)C = A(BC)$
+        \item \textbf{not} commutative: $AB \neq BA$ in general; however vector dot product is commutative: $x^T y = y^T x$
+        \item transpose of a matrix product: $(AB)^T = B^T A^T$
+    \end{itemize}
+    \item \textbf{System of Linear Equations}
+    \begin{itemize}
+        \item $Ax=b$, $A \in \mathbb{R}^{m \times n}$ is a known matrix, $b \in \mathbb{R}^m$ is a known vector, and $x \in \mathbb{R}^n$ is unkown, and we would like to solve for it.
+        \item can rewrite as: $$A_{1,1}x_1 + A_{1,2}x_2 + \dots + A_{1, n}x_n = b_1$$
+        $$A_{2,1}x_1 + A_{2,2}x_2 + \dots + A_{2, n}x_n = b_2$$ 
+        $$\vdots$$
+        $$A_{m,1}x_1 + A_{m,2}x_2 + \dots + A_{m, n}x_n = b_m$$
+    \end{itemize}
 \end{itemize}
