@@ -12,5 +12,5 @@
 *.fls
 *.synctex.gz
 *.bcf
-*.run.xml    
-*.pdf
+main.run.xml
+main.pdf
