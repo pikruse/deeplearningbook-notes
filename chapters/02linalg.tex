@@ -79,24 +79,77 @@
     \item \textbf{Matrix Inversion}: analytic solution to the system of linear equations
     \item \textbf{Identity Matrix}: does not change a vector when multiplied by it; denoted $I_n$, formally $I_n \in \mathbb{R^{n \times n}}$ and $\forall x \in \mathbb{R}^n, I_n x = x$; takes form of 1s along the diagonal
     \item \textbf{Matrix Inverse}: $A^{-1}$ is the inverse of $A$, defined as the matrix such that $A^{-1}A = I_n$
-    \item 
+    \item Solving a system of linear equations:
+    \begin{align}
+        Ax &= b \\
+        A^{-1}Ax &= A^{-1}b \\
+        I_n x &= A^{-1}b \\
+        x &= A^{-1}b 
+    \end{align}
+    \item inverse matrix is primarily used as a theoretical tool - it's hard to represent at high precision on a digital computer
 \end{itemize}
 
 \subsection{Linear Dependence and Span}
+\begin{itemize}
+    \item for $A^{-1}$ to exist, the system of lin. eqns. must have one solution for every value of $b$
+    \item it is also possible to have a system with no solutions or infinitely many solutions
+    \item it is not possible to have a system with more than one but less than infinite solutions;  if $x$ and $y$ are solutions, then 
+    $$z = \alpha x + (1 - \alpha) y$$
+    is also a solution $\forall \alpha \in \mathbb{R}$
+    \item \textbf{Finding Solutions to a System of Linear Equations}:
+    \begin{itemize}
+        \item columns of $A$: different directions that we can travel from the origin
+        \item how many ways are there to reach $b$?
+        \item $x$ how far we travel in each direction:
+        $$ Ax = \sum_i x_i A_{:, i}$$
+        \item textbf{Linear Combination}: multiply a set of vectors by scalars and add the results:
+        $$ \sum_i c_i v^{i} $$
+        \item \textbf{Span}: all points obtainable by linear combination of the original vectors
+        \item to find if the system has a solution, we must check if $b$ is in the span of the columns of $A$, called the \textbf{column space/range} of $A$.
+        \item $A$ must have at least $m$ columns to span $\mathbb{R}^m$; if $A$ has fewer than $m$ columns, then it cannot span $\mathbb{R}^m$ and the system has no solutions
+        \item columns can also be redundant; so this is not a sufficient condition for a solution
+        \item \textbf{Linear Dependence}: if one column can be expressed as a linear combination of other columns 
+        \item \textbf{Linear Independence}: no vector in the set is a linear combination of the other vectors
+        \item for a column space to span $\mathbb{R}^m$, it must have at least $m$ linearly independent columns
+    \end{itemize}
+    \item for a matrix to have an inverse, we need to ensure that our system has $at most$ one solution for each value of $b$; the matrix then must have at most $m$ columns, otherwise one of the columns must be linearly dependent
+    \item therefore, our matrix must be square ($m = n$), and all columns must be linearly independent; this is a \textbf{singular} matrix
+\end{itemize}
 
 \subsection{Norms}
+\begin{itemize}
+    \item 
+\end{itemize}
 
 \subsection{Special Kinds of Matrices and Vectors}
+\begin{itemize}
+    \item 
+\end{itemize}
 
 \subsection{Eigendecomposition}
+\begin{itemize}
+    \item
+\end{itemize}
 
 \subsection{Singular Value Decomposition}
+\begin{itemize}
+    \item
+\end{itemize}
 
 \subsection{Moore-Penrose Pseudoinverse}
+\begin{itemize}
+    \item
+\end{itemize}
 
 \subsection{Trace Operator}
+\begin{itemize}
+    \item
+\end{itemize}
 
 \subsection{Determinant}
+\begin{itemize}
+    \item
+\end{itemize}
 
 \subsection{Example: PCA}
 
