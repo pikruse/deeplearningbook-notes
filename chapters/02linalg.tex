@@ -43,3 +43,18 @@
         \item \textbf{Broadcasting}: the copying of a vector to match the dimensions of a matrix
     \end{itemize}
 \end{itemize}
+
+\subsection{Matrix and Vector Multiplication}
+\begin{itemize}
+    \item \textbf{matrix product}: $C = AB$
+    \begin{itemize}
+        \item to be defined, $A$, must have the same number of columns as $B$ has rows.
+        \item if $A$ is $m \times n$ and $B$ is $n \times p$, then $C$ is shape $m \times p$
+        \item $C_{i,j} = \sum_k A_{i,k} B_{k,j}$
+    \end{itemize}
+    \item \textbf{Hadamard product}: element-wise multiplication of a matrix, denoted $A \circ B$
+    \item \textbf{Dot Product}: $x \cdot y$ is the same dimensionality as the matrix product $x^T y$
+    \begin{itemize}
+        \item $C = AB$ $\rightarrow$ $C_{i,j}$ is the dot product of row $i$ of $A$ and column $j$ of $B$ 
+    \end{itemize}
+\end{itemize}
