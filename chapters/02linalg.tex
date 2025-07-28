@@ -1,0 +1,45 @@
+\section{Linear Algebra Basics}
+\subsection{Scalars, Vectors, Matrices, and Tensors}
+\begin{itemize}
+    \item \textbf{Scalar}: single number, specified by type $\mathbb{R}$, $\mathbb{N}$, $\mathbb{Z}$
+    \item \textbf{Vector}: an array of numbers arranged in a single row or column 
+    \begin{itemize}
+        \item First element of $\mathbf{x}$ is $x_1$, second is $x_2$, and so on:
+        $\begin{pmatrix}
+            x_1 \\
+            x_2 \\
+            \vdots \\
+            x_n \\
+        \end{pmatrix}$
+        \item must specify the type of numbers stored, i.e., $\mathbf{x} \in \mathbb{R}^n$, where $n$ is the number of elements/dimensionality
+        \item can think of a vector as identifying a point in space; each element gives a coordinate along a different axis
+        \item can index vectors with a set
+        \begin{itemize}
+            \item indices $1, 3, 6$ $\rightarrow$ $S = \{1, 3, 6\}$ $\rightarrow$ $x_S = \{x_1, x_3, x_6\}$
+        \end{itemize}
+        \item "$-$" indicates the complement of a set; $x_{-1} \rightarrow$ all elements except $-1$
+    \end{itemize}
+    \item \textbf{Matrix}: 2-d array of numbers
+    \begin{itemize}
+        \item each element is specified by two indices (row, col) instead of one
+        \item $A_{m,n}$: entry at row $m$, col $n$
+        \item $A_{i, :}$: all entries in the $i_{th}$ row of $A$
+        \item $A_{:, j}$: all entries in the $j_{th}$ column of $A$
+    \end{itemize}
+    \item \textbf{Tensor}: Array with more than two axes
+    \begin{itemize}
+        \item $A_{i, j, k}$
+    \end{itemize}
+    \item \textbf{Transpose}: mirror image of a matrix across its main diagonal
+    \begin{itemize}
+        \item $(A^T)_{i,j} = A_{j, i}$
+        \item row-column swap
+    \end{itemize}
+    \item \textbf{Matrix Addition}: element-wise addition of two matrices of the same size
+    \item Scalar times matrix: $D = a \cdot B + c$ $\rightarrow$ $D_{i,j} = a \cdot B_{i,j} + c$ 
+    \item Matrix-Vector Addition: $C = A + \mathbf{b}$ $\rightarrow$  $C_{i, j} = A_{i, j} + b_j$
+    \begin{itemize}
+        \item vector b is added to each row of matrix A
+        \item \textbf{Broadcasting}: the copying of a vector to match the dimensions of a matrix
+    \end{itemize}
+\end{itemize}

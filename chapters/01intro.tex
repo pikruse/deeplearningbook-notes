@@ -1,0 +1,41 @@
+\section{Introduction}\label{sec:introduction}
+\begin{itemize}
+    \item \textbf{Deep Learning} building hierarchical graph of concepts with many layers
+    \begin{itemize}
+        \item representations are expressed in terms of other, simpler representations
+        \item \textbf{MLP}: function that maps input to output; composition of many simpler functions
+    \end{itemize}
+    \item \textbf{Knowledge Base} Apporach: hard-code knowledge or rules in formal language
+    \item \textbf{Machine Learning}: the ability to extract ("learn") patterns from raw data
+    \item \textbf{Representation Learning}: using machine learning to derive a representation (extract features); ex: autoencoders
+\end{itemize}
+
+\subsection{Who Should Read This Book?}
+
+\subsection{Historical Trends in Deep Learning} 
+\begin{itemize}
+    \item \textbf{Cybernetics} (1940s-50s): aimed to computationally model the brain, very theoretical, very little learning mechanism
+    \begin{itemize}
+        \item \textbf{MCP Neuron}: first model of a neuron, inspired by human brain; used propositional logic, no learning mechanism
+        \item \textbf{Perceptron}: first learning algorithm, used for binary classification; limited to linearly separable data
+        \item \textbf{ADALINE}: special case of SGD
+    \end{itemize}
+    \item \textbf{Connectionism} (1980s-90s): introduced backpropagation, focus on MLPs and CNNs for automatic feature extraction on basic learning tasks
+    \begin{itemize}
+        \item \textbf{Backprop}: discovered independently in the 70s/80s by multiple groups; popularized by Rumelhart, Hinton, and Williams, efficient and scalable learning mechansim
+        \item \textbf{MLP}: multi-layer perceptron; used for supervised learning; feature differentiable and continuous nonlinearities, which worked with backprop; universal approximator
+        \item \textbf{CNN}: convolutional neural networks; used for image processing, introduced by LeCun et al. in 1989; uses local connectivity and weight sharing
+    \end{itemize}
+    \item \textbf{Deep Learning} (2000s-present): focus on large datasets, deeper models, new architectures, and computational power
+    \begin{itemize}
+        \item \textbf{GPU Computing}: use of graphics processing units to accelerate deep learning training
+        \item \textbf{Transfer Learning}: leveraging pre-trained models on new tasks with limited data
+        \item \textbf{Generative Models}: models that can generate new data samples, e.g., GANs and VAEs
+    \end{itemize}
+    \item Models became more useful as data sizes increased; performance increased despite very little difference in architecture
+    \item Models became more complex with infrastructure improvements 
+    \begin{itemize}
+        \item faster CPUs, general purpose GPUs
+        \item software libraries like TensorFlow, PyTorch, and JAX
+    \end{itemize}
+\end{itemize}
