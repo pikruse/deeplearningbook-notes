@@ -10,4 +10,6 @@
 *.dvi
 *.fdb_latexmk
 *.fls
-*.synctex.gz    
+*.synctex.gz
+*.bcf
+*.run.xml    
