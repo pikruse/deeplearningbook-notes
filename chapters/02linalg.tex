@@ -5,12 +5,12 @@
     \item \textbf{Vector}: an array of numbers arranged in a single row or column 
     \begin{itemize}
         \item First element of $\mathbf{x}$ is $x_1$, second is $x_2$, and so on:
-        $\begin{pmatrix}
+        $$\begin{bmatrix}
             x_1 \\
             x_2 \\
             \vdots \\
             x_n \\
-        \end{pmatrix}$
+        \end{bmatrix}$$
         \item must specify the type of numbers stored, i.e., $\mathbf{x} \in \mathbb{R}^n$, where $n$ is the number of elements/dimensionality
         \item can think of a vector as identifying a point in space; each element gives a coordinate along a different axis
         \item can index vectors with a set
@@ -118,12 +118,65 @@
 
 \subsection{Norms}
 \begin{itemize}
-    \item 
+    \item \textbf{Norm}: a way to measure the 'size' of a vector. Functions mapping vectors to non-negative values. The $L^p$ norm is given by: 
+    $$ ||x||_p = \Big( \sum_i |x_i|^p \Big)^{\frac{1}{p}}, p \in \mathbb{R}, p \geq 1 $$
+    \item intuitively, norms measure the distance of a vector from the origin
+    \item rigorously, norms must satisfy the following properties:
+    \begin{itemize}
+        \item $f(x) = 0 \Rightarrow x = 0$ (only the zero vector has a norm of zero)
+        \item $f(x + y) \leq f(x) + f(y)$ (triangle inequality) (the norm of the sum is less than or equal to the sum of the norms)
+        \item $\forall \alpha \in \mathbb{R}, f(\alpha x) = |\alpha| f(x)$ (scaling property) (the norm of a scaled vector is the absolute value of the scaling factor times the norm of the vector)
+    \end{itemize}
+    \item \textbf{Euclidean Norm}: $L^2$ norm 
+    \begin{itemize}
+        \item the euclidean distance from the origin to a point. 
+        \item Often denoted as $||x||_2$ or even $||x||$.
+        \item Additionally, can measure the vector size with the squared $L^2$ norm, $x^T x$.
+        \item derivative of squared $L^2$ wrt $x_n$ only depends on the $n$-th component of $x$.
+        \item increases slowly near the origin, and quickly as we move away from it.
+    \end{itemize}
+    \item \textbf{Manhattan Distance}: $L^1$ Norm
+    \begin{itemize}
+        \item the sum of absolute values of a vector.
+        \item grows at the same rate in all locations (no exponent)
+        \item used in ML when the difference between zero and nonzero values are important
+    \end{itemize}
+    \item \textbf{Max Norm}: $L^\infty$ Norm
+    \begin{itemize}
+        \item the absolute value of the largest component of a vector
+        \item $||x||_\infty = \max_i |x_i|$
+    \end{itemize}
+    \item \textbf{Frobenius Norm}: $L^2$ norm of a matrix
+    \begin{itemize}
+        \item measures the size of a matrix
+        $$ ||A||_F = \sqrt{\sum_{i,j} A_{i,j}^2} $$
+    \end{itemize}
+    \item can rewrite the dot produce in terms of norms:
+    $$ x^T y = ||x||_2 ||y||_2 \cos(\theta) $$
+    where $\theta$ is the angle between the two vectors.
 \end{itemize}
 
 \subsection{Special Kinds of Matrices and Vectors}
 \begin{itemize}
-    \item 
+    \item \textbf{Diagonal Matrices}: only have nonzero entries along the main diagonal
+    \begin{itemize}
+        \item denoted as $diag(v)$, where $v$ is the vector of diagonal entries
+        \item to compute $diag(v)x$, we multiply each element $x_i$ by $v_i$; $diag(v)x = v \circ x$
+        \item inverse exists if all diagonal entries are nonzero, and if so,
+        $$ diag(v)^{-1} = diag([1/v_1, ..., 1/v_n]^T) $$
+        \item diagonal matrices can be non-square; don't have inverses, but can still multiply cheaply
+    \end{itemize}
+    \item \textbf{Symmetric Matrices}: any matrix that is equal to its own transpose: $A^T = A$
+    \begin{itemize}
+        \item often occur when entreis are generate by a function with two arguments that doesn't depend on argument order
+        \item ex: $A$ is a distance matrix, where $A_{i,j}$ is the distance between $i$ and $j$, so $A_{i,j} = A_{j,i}$, because distance functions are symmetric.
+    \end{itemize}
+    \item \textbf{Unit Vector}: a vector with a unit norm, i.e. $||x||_2 = 1$.
+    \item vectors $x$ and $y$ are \textbf{orthogonal} if $x^T y = 0$; if both vectors have a nonzero norm, this means that they are at a 90 degree angle from each other 
+    \item \textbf{Orthonormal Vectors}: orthogonal vectors with a unit norm
+    \item \textbf{Orthogonal Matrix}: a square matrix with rows that mutually orthonormal and columns that are mutually orthonormal:
+    $$ A^T A = AA^T = I; A^{-1} = A^T $$
+    \item orthogonal matrices are of interest because their inverse is easy to compute
 \end{itemize}
 
 \subsection{Eigendecomposition}
