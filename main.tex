@@ -1,26 +1,25 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage[colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=blue, citecolor=blue]{hyperref} % hyperlinks
-\usepackage{biblatex} % bibliography mgmt
-\usepackage{amsmath} % math symbols
-\usepackage{amsfonts} % math fonts
-\usepackage{amssymb} % math symbols
-\usepackage{subfiles} % independent compilation
-\bibliography{refs.bib}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\usepackage{hyperref}
 
+\addbibresource{refs.bib}
 \title{Deep Learning Book Notes}
+\author{Peter Kruse}
 
 \begin{document}
 
 \maketitle
 
-\title{Deep Learning Book Notes}
-\author{Peter Kruse}
+Notes from \textit{Deep Learning} by Goodfellow, Bengio, and Courville \cite{deeplearningbook}.
 
 \tableofcontents
 
+
 % include chapter notes
-\include{chapters/01intro.tex}
-\include{chapters/02linalg.tex}
+\include{chapters/01intro}
+\include{chapters/02linalg}
 
 \end{document}

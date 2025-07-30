@@ -180,8 +180,37 @@
 \end{itemize}
 
 \subsection{Eigendecomposition}
+\textbf{Intution:} you can think of a matrix as a function that transforms space (or individual vectors). However, some special vectors are invariant to this transformation. If a vector only gets scaled by a matrix, and not rotated, then it's an eigenvector. This scaling factor is an eigenvalue. The "unchanged" directions in the matrix tranformation are a fundamental property of that matrix.
 \begin{itemize}
-    \item
+    \item eigendecomposition is a way to decompose matrices to find information about their functional properties
+    \item \textbf{Eigendecomposition}: decompose a matrix into eigenvectors and eigenvalues
+    \item \textbf{Eigenvector}: of $A$; a nonzero vector $v$ such that multipcation by $A$ alters only the scale of $v$:
+    $$ A v = \lambda v$$
+    \item The scalar $\lambda$ is the \textbf{eignvalue}
+    \begin{itemize}
+        \item if $v$ is an eigenvector of $A$, then any scaled vector $sv$ is also one
+        \item $sv$ has the same eigenvalue as $v$
+        \item therefore, we usually only look at unit eigenvectors
+    \end{itemize}
+    \item a group of linearly independent eigenvectors ${v^1, \dots, v^n}$ with eigenvalues ${\lambda^1, \dots, \lambda^n}$ can be written as a matrix $V$:
+    $$ V = [v^1, \dots, v^n]$$
+    \item we can make a vector of eigenvalues as well:
+    $$ \lambda = \begin{bmatrix}
+        \lambda^1 \\
+        \vdots \\
+        \lambda^n 
+    \end{bmatrix}$$
+    \item the \textbf{eigendecomposition} of $A$ is:
+    $$ A = V \text{diag}(\lambda)V^{-1}$$
+    \item \textit{constructing} matrices with specfic eigenvalues/vectors allows us to stretch space in desired directions
+    \item \textbf{Decomposing} matrices into eigenvectors/values helps us analyze their properties
+    \item Every real, symmetric matrix can be decomposed into an expression of real-valued eigenvectors and eigenvalues:
+    $$ A = Q \Lambda Q^T$$,
+    where $Q$ is an orthogonal matrix of eigenvectors of $A$, and $\Lambda$ is a diagonal matrix.
+    \item Eigendecomposition of a real symmetric matrix can also be used to optimize quadratic expressions of the form $f(x) = x^T Ax $ subject to $||x||_2 = 1$.
+    \item \textbf{Positive Definite:} a matrix whose eigenvalues are all positive
+    \item \textbf{Positive Semidefinite:} a matrix whose eigenvalues are all non-negative (positive or zero). Guarantee that $x^T Ax \geq 0 \forall x$
+    \item \textbf{Negative Semidefinite:} a matrix whose eigenvalues are negative or zero-valued
 \end{itemize}
 
 \subsection{Singular Value Decomposition}
