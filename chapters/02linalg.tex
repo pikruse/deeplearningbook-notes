@@ -215,17 +215,52 @@
 
 \subsection{Singular Value Decomposition}
 \begin{itemize}
-    \item
+    \item \textbf{Singular Value Decompostion} factors a matrix into \textbf{singular vectors} and \textbf{singular values}
+    \item more generally applicable than eigendecomposition; can be applied to \textit{any real matrix}
+    \item Eigendecomposition:
+    $$ A = V diag(\lambda)V^{-1}$$
+    \item SVD:
+    $$ A = UDV^T$$
+    \item if $A$ is a $m \times n$ matrix, then $U$ is a $m \times m$ matrix, $D$ is an $m \times n$ matrix, and $V$ is an $n \times n$ matrix
+    \item SVD Matrix shapes:
+    \begin{itemize}
+        \item $U$ and $V$ are orthogonal matrices
+        \item $D$ is a diagonal matrix
+    \end{itemize}
+    \item elements along the diagonal of $D$ are the \textbf{singular values} of $A$
+    \item columns of $U$ are the \textbf{left singular vectors}, columns of $V$ are the \textbf{right singular vectors}
+    \item Relationship to eigendecomposition:
+    \begin{itemize}
+        \item left singular vectors are the eigenvectors of $AA^T$
+        \item right singular vectors are the eigenvectors of $A^TA$
+        \item non-zero singular values are the square roots of the eigenvalues of $A^TA$ or $AA^T$
+    \end{itemize}
+    \item \textit{can utilize SVD to partially generalize matrix inversion to non-square matrices}
 \end{itemize}
 
 \subsection{Moore-Penrose Pseudoinverse}
 \begin{itemize}
-    \item
+    \item matrix inversion is not defined for matrices that are not square
+    \item \textbf{Moore-Penrose Pseudoinverse}:
+    $$ A^+ = \lim_{a \rightarrow 0}(A^TA + \alpha I)^{-1}A^T$$
+    \item practical formula for computing MPP:
+    $$ A^+ = V D^+ U^T$$
+    where $U$, $D$, and $V$ are the SVD of $A$, and $D^+$ is the pseudoinverse of $D$, obtained by taking the reciprocal of its nonzero elements and tranposing the resulting matrix
+    \item if $A$ has more columns than rows, it is possible to find a solution, or many
+    \item if $A$ has more rows than columns, it is possible for there to be no solution, but we can find the $x$ as close as possible to $y$ in terms of Euclidean norm
 \end{itemize}
 
 \subsection{Trace Operator}
 \begin{itemize}
-    \item
+    \item The \textbf{Trace} gives the sum of all diagonal entries of a matrix:
+    $$ Tr(A) = \sum_i A_{i,i}$$
+    \item allows us to write some operations without summation notation, which allows us to manipulate the expression with identities 
+    \item \textbf{Trace Properties}:
+    \begin{itemize}
+        \item $Tr(A) = Tr(A^T)$: trace is invariant to transposition
+        \item $Tr(ABC) = Tr(CAB) = Tr(BCA)$: trace is invariant to moving last matrix factor to the first position
+        \item $a = Tr(a)$: trace of a scalar is the scalar itself
+    \end{itemize}
 \end{itemize}
 
 \subsection{Determinant}
