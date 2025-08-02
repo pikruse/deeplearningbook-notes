@@ -1,7 +1,7 @@
 \section{Linear Algebra Basics}
 \subsection{Scalars, Vectors, Matrices, and Tensors}
 \begin{itemize}
-    \item \textbf{Scalar}: single number, specified by type $\mathbb{R}$, $\mathbb{N}$, $\mathbb{Z}$
+    \item \textbf{Scalar}: single number, specified by type $\mathbb{R}$, $\mathbb{N}$, $\mathbb{Z}$.
     \item \textbf{Vector}: an array of numbers arranged in a single row or column 
     \begin{itemize}
         \item First element of $\mathbf{x}$ is $x_1$, second is $x_2$, and so on:
@@ -183,6 +183,7 @@
 \textbf{Intution:} you can think of a matrix as a function that transforms space (or individual vectors). However, some special vectors are invariant to this transformation. If a vector only gets scaled by a matrix, and not rotated, then it's an eigenvector. This scaling factor is an eigenvalue. The "unchanged" directions in the matrix tranformation are a fundamental property of that matrix.
 \begin{itemize}
     \item eigendecomposition is a way to decompose matrices to find information about their functional properties
+    \item eigenvalues represent the direction that space is being transformed; eigenvalues represent the magnitude
     \item \textbf{Eigendecomposition}: decompose a matrix into eigenvectors and eigenvalues
     \item \textbf{Eigenvector}: of $A$; a nonzero vector $v$ such that multipcation by $A$ alters only the scale of $v$:
     $$ A v = \lambda v$$
@@ -265,8 +266,60 @@
 
 \subsection{Determinant}
 \begin{itemize}
-    \item
+    \item \textbf{determinant}: function mapping matrices to real scalars; equal to the product of all eigenvalues of the matrix
+    \item can be thought of as a measure of how much matrix multiplication expands or contracts space
+    \item $det(A) = 0$, then space is contracted completely along at least one dimension
+    \item $det(A) = 1$, transformation preserves "volume" (dimensionality) of the space
 \end{itemize}
 
 \subsection{Example: PCA}
+\begin{itemize}
+    \item begin with $m$ points ${x^1, \dots, x^m} \in \mathbb{R}^n$.
+    \item goal: store the points in a way that requires less memory, but may lose precision (lossy compression).
+    \item strategy: encode the points with a lower-dimensional representation
+    \begin{itemize}
+        \item $\forall x^i \in \mathbb{R}^n$, find a corresponding code vector $c^i \in \mathbb{R}^l$.
+        \item find an encoding function $f(x) = c$ that produces the encoded vector, and decoding function $x \approx g(f(x))$
+    \end{itemize}
+    \item PCA is defined by the choice of decoding function
+    \begin{itemize}
+        \item let $g(c) = Dc$, where $ D \in \mathbb{R}^{n \times l}$ is the decoding transformation matrix
+        \item columns of $D$ must be orthogonal to each other
+        \item $D$ must have a unit norm to give us a unique solution
+    \end{itemize}
+    \item How do we generate the optimal $c^*$ for each input $x$?
+    \begin{itemize}
+        \item minimize the distance between $x$ and its reconstruction
+        \item measure the "reconstruction loss" with the $L^2$ norm:
+        $$ c^* = \text{argmin}_c ||x-g(c)||_2 $$
+        \item we can use the squared $L^2$ norm instead:
+        $$ c^* = \text{argmin}_c ||x-g(c)||_2^2 $$
+        \item which simplifies to:
+        \begin{align}
+            (x - g(c))^T(x - g(c)) &= x^Tx - x^Tg(c) - g(c)^Tx + g(c)^Tg(c) \\
+            &= x^Tx - 2x^Tg(c) + g(c)^Tg(c)
+        \end{align}
+        \item eliminate terms not dependent on $c$ and subsitute the definition of $g(c)$
+        \begin{align}
+            c^* &= \text{argmin}_c - 2x^Tg(c) + g(c)^Tg(c) \\
+            &= \text{argmin}_c -2x^T Dc + c^T D^T Dc \\
+            &= \text{argmin}_c -2x^T Dc + c^T I_lc \\
+            &= \text{argmin}_c -2x^T Dc + c^Tc 
+        \end{align}
+        \item solve with vector calculus
+        \begin{align}
+            \nabla_c (-2x^T Dc + c^T c) &= 0 \\
+            -2D^Tx + 2c &= 0 \\
+            c &= D^Tx
+        \end{align}
+        \item So, we can encode $x$ with a matrix-vector multiply: $f(x) = D^Tx$
+        \item the PCA reconstruction is then
+        $$ r(x) = g(f(x)) = DD^T x$$
+    \end{itemize}
+    \item how do we choose the encoding matrix $D$?
+    \begin{itemize}
+        \item minimize the frobenius norm of the matrix of reconstruction errors:
+        $$ D^* = \text{argmin}_D \sqrt{\sum_{i,j} \Big( x_j^i - r(x^i)_j \Big)^2} $$
+    \end{itemize}
+\end{itemize}
 
