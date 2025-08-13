@@ -1,0 +1,65 @@
+\section{Probability and Information Theory}
+\begin{itemize}
+    \item \textbf{Probability theory:} A mathematical framework for representing uncertain statements
+    \begin{itemize}
+        \item laws of probability tells us how AI systems should reason
+        \item we use probability to theoretically analyze the behavior of AI systems 
+    \end{itemize}
+\end{itemize}
+\subsection{Why Probability?}
+\begin{itemize}
+    \item Machine learning must always deal with uncertain quantities, and sometimes also may deal with stochastic quantities
+    \item Sources of uncertainty:
+    \begin{enumerate}
+        \item Inherent stochasticity in the system being modeled, ex. quantum mechanics, card games with random shuffling
+        \item Incomplete observability $\rightarrow$ we cannot observe all of the variables that drive the behavior of the system 
+        \item Incomplete modeling $\rightarrow$ occurs when we use a model that must discard some of the information we have observed, ex: discretizing a continuous variable
+    \end{enumerate}
+    \item it is more practical to use a simple but uncertain rule instead of a complex but certain one; complex rules are more expensive to develop, maintain, and communicate
+    \item \textbf{Degree of belief:} a measure of confidence between 0 and 1
+    \item \textbf{Frequentist probability}: directly related to the rates at which events occur
+    \item \textbf{Bayesian probability:} related to qualitative levels of certainty based on prior information
+    \item Can think of prb. as the extension of logic to deal with uncertainty
+\end{itemize}
+
+\subsection{Random Variables}
+\begin{itemize}
+    \item \textbf{Random variable:} a variable that can take on different values randomly
+    \begin{itemize}
+        \item $x_1, x_2$: possible values that the random variable $x$ can take on
+        \item vector valued random variables $\mathbf{x}$ can take on values $x$
+        \item random variables are just descriptions of possible states on their own
+    \end{itemize}
+\end{itemize}
+
+\subsection{Probability Distributions}
+\begin{itemize}
+    \item \textbf{Probability distribution:} description of how likely an RV or set of RVs is to take on each possible state
+    \item distribution characteristics change whether variables are discrete or continuous
+\end{itemize}
+\subsubsection{Discrete Variables and Probability Mass Functions}
+\begin{itemize}
+    \item \textbf{Probability mass function (PMF):} describes a prb. distribution over discrete variables, denoted with a capital $P$.
+    \item maps from the state of a random variable to the prb. that the variable is taking that state, ex: probability that $\text{x} = x$ is $P(x)$.
+    Can also write as $P(\text{x} = x)$ or $x ~ P(x)$.
+    \item when acting on multiple variables at the same time, we can use a \textbf{joint probability distribution}: $P(\text{x} = x, \text{y} = y)$ or $P(x, y)$
+    \item properties of the PMF:
+    \begin{itemize}
+        \item domain of $P$ is set for all possible states of x.
+        \item $\forall x \in \text{x}, 0 \leq P(x) \leq 1$: events must have a probability between 0 and 1.
+        \item $\sum_{x \in \text{x}} P(x) = 1$: total probability must sum to 1 $\rightarrow$ the probability is \textbf{normalized.}
+    \end{itemize}
+    \begin{example}
+        Consider a discrete variable x with $k$ states. We place a \textbf{uniform distribution} on x, so each state is equally likely, with
+        $$ P(\text{x} = x_i) = \frac{1}{k} $$.
+
+        This fits the requirements of the probability mass function:
+        \begin{enumerate}
+            \item All $\frac{1}{k}$ are positive because $k$ is a positive integer.
+            \item The distribution is normalized: 
+            $$ \sum_{i} P(x = x_i) = \sum_{i} \frac{1}{k} = \frac{k}{k} = 1 $$
+        \end{enumerate}
+    \end{example}
+\end{itemize}
+
+\subsubsection{Continuous Variables and Probability Density Functions}
