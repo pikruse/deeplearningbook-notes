@@ -63,3 +63,24 @@
 \end{itemize}
 
 \subsubsection{Continuous Variables and Probability Density Functions}
+\begin{itemize}
+    \item \textbf{Probability Density Function (PDF):} used instead of PMF for continuous random variables.
+    \item PDF properties
+    \begin{enumerate}
+        \item The domain of $p$ must be the set of all possible states of x.
+        \item $\forall x \in \text{x}, p(x) \geq 0$. However, it is not required that $p(x) \leq 1$.
+        \item $\int p(x) dx = 1$ The total probability must integrate to 1
+    \end{enumerate}
+    \item $p(x)$ doesn't give the probability directly $\rightarrow$ instead, it gives the probability of landing inside an infinitesimal region with volume $\delta x$ given by $p(x) \delta x$.
+    \item by integrating the PDF, we can find the actual probability mass of a set of points.
+    \item the probability that $x$ lies in some set $\mathbb{S}$ is given by the integral $p(x)$ over the set, ex:
+    $$ \int_{[a, b]}p(x) dx $$.
+    \begin{example}
+        Consider the uniform distribution on an interval of the real numbers.
+        Our PDF is $u(x; a, b)$, where $a, b$ are the endpoints of the interval, and $b > a$. ";" means "parameterized by"
+        $u(x; a, b) = 0, \forall x \notin [a, b]$ to ensure that total probability mass is 1.
+        Within $[a, b]$, $u(x; a, b) = \frac{1}{b-a}$; this is nonnegative everywhere, and integrates to 1:
+        $$ \int_{[a, b]} u(x; a, b) dx = \int_{[a, b]} \frac{1}{b-a} dx = \frac{1}{b-a} (b-a) = 1 $$
+        We denote $x$ following a uniform distribution on $[a, b]$ by writing $x \sim U(a, b)$.
+    \end{example}
+\end{itemize}
